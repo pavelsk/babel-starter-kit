@@ -59,6 +59,20 @@ app.get('/task2B', function (req, res) {
     res.send(String(result));
 });
 
+app.get('/task2C', function (req, res) {
+
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+
+    let result;
+
+    if (req.query.username) {
+        result = req.query.username.match(/^(?:.+?\.[a-z\-0-9]+?\/|)@?([^\?\/]+)/);
+    }
+
+    res.send(result ? '@' + result[1] : 'Invalid username');
+});
+
 app.listen(3000, function () {
     console.log('Example app listening on port 3000!');
 });
