@@ -1,6 +1,8 @@
 import express from 'express';
 import cors from 'cors';
 
+import task3A from './task3A';
+
 const app = express();
 
 app.use(cors());
@@ -72,6 +74,8 @@ app.get('/task2C', function (req, res) {
 
     res.send(result ? '@' + result[1] : 'Invalid username');
 });
+
+app.use('/task3A', task3A);
 
 app.listen(3000, function () {
     console.log('Example app listening on port 3000!');
